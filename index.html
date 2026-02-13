@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007bff"> <!-- PWA theme color -->
+    <title>Enthusiast Frontend Developer Portfolio</title>
+    <link rel="manifest" href="manifest.json"> <!-- Link to PWA manifest -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5rem;
+        }
+        .skills, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .skill, .project {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            flex: 1 1 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .dark-mode .skill, .dark-mode .project {
+            background-color: #444;
+            border-color: #666;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>John Doe - Enthusiast Frontend Developer</h1>
+        <p>Passionate about crafting beautiful, user-friendly web experiences.</p>
+        <button id="toggle-mode">Toggle Dark Mode</button>
+    </header>
+    
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm an enthusiast frontend developer who loves turning ideas into interactive websites. With a background in [your hobby or field, e.g., graphic design], I specialize in HTML, CSS, and JavaScript. When not coding, I enjoy [your interests, e.g., hiking and gaming].</p>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3 (Flexbox, Grid)</div>
+                <div class="skill">JavaScript (ES6+)</div>
+                <div class="skill">Responsive Design</div>
+                <div class="skill">Version Control (Git)</div>
+                <div class="skill">Basic React</div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Personal Blog</h3>
+                    <p>A responsive blog site built with HTML, CSS, and vanilla JS. Features dynamic content loading.</p>
+                    <a href="#" target="_blank">View Live</a> | <a href="#" target="_blank">GitHub</a>
+                </div>
+                <div class="project">
+                    <h3>Weather App</h3>
+                    <p>Fetches real-time weather data using APIs. Includes geolocation and a clean UI.</p>
+                    <a href="#" target="_blank">View Live</a> | <a href="#" target="_blank">GitHub</a>
+                </div>
+                <div class="project">
+                    <h3>Portfolio Site</h3>
+                    <p>This very page! A simple, customizable portfolio to showcase my work.</p>
+                    <a href="#" target="_blank">View Live</a> | <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Let's connect! Reach out via email or social media.</p>
+            <ul>
+                <li>Email: john.doe@example.com</li>
+                <li>LinkedIn: <a href="#" target="_blank">linkedin.com/in/johndoe</a></li>
+                <li>GitHub: <a href="#" target="_blank">github.com/johndoe</a></li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 John Doe. Built with passion as a PWA.</p>
+    </footer>
+    
+    <script>
+        // Dark mode toggle
+        const toggleButton = document.getElementById('toggle-mode');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
